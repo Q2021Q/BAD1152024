@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de Verificación</title>
+    <!-- Incluye el CSS de FontAwesome -->
+
+</head>
+<body>
+    <body style="font-family: Arial, sans-serif; background-color: #f0f0f0;  height: 100vh; padding-top: 40px;">
+        <div style="text-align: center; background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 80%; margin: auto; width: 400px;">
+            <!-- Usa una imagen en lugar de un icono de FontAwesome -->
+            <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Font_Awesome_5_solid_shield-alt.svg/512px-Font_Awesome_5_solid_shield-alt.svg.png" alt="Security Icon" style="width: 70px; height: 70px; color: #ff5733; margin-bottom: 20px;"> -->
+            <h1 style="font-size: 2em; margin: 0.5em 0; color: #333;">BIBLIOTECA CENTRAL</h1>
+            <h4 style="font-size: 1.2em; margin: 0.5em 0; color: #999; margin-top: -15px !important;">El Salvador</h4>
+            <h3 style="font-size: 1.5em; margin: 0.5em 0; color: #777; margin-top: 20px;">Su código de verificación es: <span th:text="${code}"></h3>
+        </div>
+</body>
+</html>
