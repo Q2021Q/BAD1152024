@@ -11,6 +11,7 @@ public class ResponseBiblioDTO<ResponseEntity> {
     private ResponseEntity dataError;
 
     public ResponseBiblioDTO(){
+        this.setNumOfErrors(0);
         this.setMessage("Successful");
     }
 

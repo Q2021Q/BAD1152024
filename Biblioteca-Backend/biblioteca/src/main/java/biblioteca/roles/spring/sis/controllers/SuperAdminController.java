@@ -24,5 +24,4 @@ public class SuperAdminController {
     ResponseEntity<ResponseRolDTO> addUserRole(@RequestBody UserRolRDTO userRolRDTO){
         return new ResponseEntity<>(roleService.addUserRole(userRolRDTO), HttpStatus.OK);
     }
-
 }
