@@ -1,0 +1,23 @@
+ADD
+POST
+localhost:8080/editorial/addeditorial
+{
+     "nombreEditorial": "otra edit",
+     "email": "edi@gmail.com",
+     "telefonoEditorial": "2900 2520"
+}
+
+
+localhost:8080/editorial/addeditorial
+POTS
+{
+    "idEditorial": 1,
+    "nombreEditorial": "editorial actualizada",
+    "email": "edi@gmail.com",
+    "telefonoEditorial": "2900 2520"
+}
+
+
+LISTAR EDITORIALES
+GET
+localhost:8080/editorial/getAllEditorial
