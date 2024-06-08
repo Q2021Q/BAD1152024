@@ -11,6 +11,7 @@ public class UserTokenOutPutDTO {
     private String message;
     private int error;
     private List<RoleEntity> userAllRole;
+    private String claveRol;
 
    public UserTokenOutPutDTO(){
         this.setError(0);
@@ -63,5 +64,13 @@ public class UserTokenOutPutDTO {
 
     public void setUserAllRole(List<RoleEntity> userAllRole) {
         this.userAllRole = userAllRole;
+    }
+
+    public String getClaveRol() {
+        return claveRol;
+    }
+
+    public void setClaveRol(String claveRol) {
+        this.claveRol = claveRol;
     }
 }

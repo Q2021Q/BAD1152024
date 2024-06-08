@@ -3,7 +3,6 @@ package biblioteca.security.spring.sis.services.models.coreFunctions;
 
 import biblioteca.roles.spring.sis.persistence.entities.RoleEntity;
 import biblioteca.roles.spring.sis.persistence.repositories.RoleRepository;
-import biblioteca.roles.spring.sis.persistence.repositories.UserRoleRepository;
 import biblioteca.security.spring.sis.persistence.entities.PersonalNameEntity;
 import biblioteca.security.spring.sis.persistence.entities.UserEntity;
 import biblioteca.security.spring.sis.persistence.repositories.UserRepository;
@@ -12,6 +11,7 @@ import biblioteca.security.spring.sis.services.models.dtos.LoginDTO;
 import biblioteca.security.spring.sis.services.models.dtos.ResponseDTO;
 import biblioteca.security.spring.sis.services.models.dtos.invalidFieldsDTO.UserCodeFieldDTO;
 import biblioteca.security.spring.sis.services.models.dtos.invalidFieldsDTO.UserInvalidFieldDTO;
+import biblioteca.security.spring.sis.services.models.dtos.outputDTO.ClaveRolTokenOutPutDTO;
 import biblioteca.security.spring.sis.services.models.dtos.outputDTO.UserTokenOutPutDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -250,25 +250,32 @@ public class UserCore {
         return userTokenOutPutDTO;
     }
 
-    public String getTokend(LoginDTO loginRequest) throws Exception {
+    public ClaveRolTokenOutPutDTO getTokend(LoginDTO loginRequest) throws Exception {
         try {
+
+            ClaveRolTokenOutPutDTO claveRolTokenOutPutDTO = new ClaveRolTokenOutPutDTO();
 
             String token;
             UserEntity user = userRepository.findByUserName(loginRequest.getUserName());
 
             if (loginRequest.getIdRol() == null){
                 token = jwtUtilityService.generateJWT(user.getId(), "unasigned");
-                return token;
+                claveRolTokenOutPutDTO.setToken(token);
+                claveRolTokenOutPutDTO.setClaveRol("unasigned");
+                return claveRolTokenOutPutDTO;
             }
 
             Optional<RoleEntity> roleUser = roleRepository.findById(loginRequest.getIdRol());
             if (roleUser.isPresent()) {
                 token  = jwtUtilityService.generateJWT(user.getId(), roleUser.get().getRoleCode());
-                return token;
+                claveRolTokenOutPutDTO.setToken(token);
+                claveRolTokenOutPutDTO.setClaveRol(roleUser.get().getRoleCode());
+                return claveRolTokenOutPutDTO;
             }
 
             token = jwtUtilityService.generateJWT(user.getId(), "unasigned");
-            return token;
+            claveRolTokenOutPutDTO.setClaveRol("unasigned");
+            return claveRolTokenOutPutDTO;
 
         } catch (IllegalArgumentException e) {
             System.err.println("Error generating JWT: " + e.getMessage());

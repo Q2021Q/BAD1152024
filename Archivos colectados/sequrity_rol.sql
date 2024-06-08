@@ -63,7 +63,7 @@ COMMIT;
 /*
 
 INSERT INTO userrole (iduser, idrole)
-VALUES (1,2);
+VALUES (2,3);
 
 INSERT INTO userrole (iduser, idrole)
 VALUES (21,3);
@@ -74,6 +74,7 @@ drop table userss;
 drop table personalname;
 drop table userrole;
 drop table rol;
+drop table categoriarecurso;
 
 
 select * from userrole;

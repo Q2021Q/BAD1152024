@@ -78,7 +78,7 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/loginForUsersWithRoles")
+    @PostMapping("/loginForUsersWithRoles")
     private ResponseEntity<UserTokenOutPutDTO> loginUserRole(@RequestBody LoginDTO loginRequest) throws Exception {
         UserTokenOutPutDTO userTokenOutPutDTO = authService.loginUserWithRoles(loginRequest);
         if (userTokenOutPutDTO.getError() == 1){

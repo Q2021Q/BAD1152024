@@ -7,6 +7,7 @@ import biblioteca.roles.spring.sis.persistence.repositories.RoleRepository;
 import biblioteca.roles.spring.sis.persistence.repositories.UserRoleRepository;
 import biblioteca.security.spring.sis.services.IAuthService;
 import biblioteca.security.spring.sis.services.IJWTUtilityService;
+import biblioteca.security.spring.sis.services.models.dtos.outputDTO.ClaveRolTokenOutPutDTO;
 import biblioteca.security.spring.sis.services.models.dtos.outputDTO.UserTokenOutPutDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -102,8 +103,9 @@ public class AuthServiceImpl implements IAuthService {
                 return userTokenOutPutDTO;
             }
 
-            String token = userCore.getTokend(loginRequest);
-            userTokenOutPutDTO.setToken(token);
+            ClaveRolTokenOutPutDTO tokenClaveRol = userCore.getTokend(loginRequest);
+            userTokenOutPutDTO.setToken(tokenClaveRol.getToken());
+            userTokenOutPutDTO.setClaveRol(tokenClaveRol.getClaveRol());
             return userTokenOutPutDTO;
 
         } catch (IllegalArgumentException e) {
@@ -141,14 +143,15 @@ public class AuthServiceImpl implements IAuthService {
                 return  userTokenOutPutDTO;
             }
 
-            String token;
+            ClaveRolTokenOutPutDTO tokenClaveRol;
             if (userAllRole.size() == 1){
                 loginRequest.setIdRol(userAllRole.get(0).getIdRole());
-                token = userCore.getTokend(loginRequest);
+                tokenClaveRol = userCore.getTokend(loginRequest);
             }else {
-                token = userCore.getTokend(loginRequest);//Obtiene un token con rol unasigned (rol no asignado)
+                tokenClaveRol = userCore.getTokend(loginRequest);;//Obtiene un token con rol unasigned (rol no asignado)
             }
-            userTokenOutPutDTO.setToken(token);
+            userTokenOutPutDTO.setToken(tokenClaveRol.getToken());
+            userTokenOutPutDTO.setClaveRol(tokenClaveRol.getClaveRol());
             userTokenOutPutDTO.setUserAllRole(userAllRole);
             return userTokenOutPutDTO;
 
@@ -203,11 +206,12 @@ public class AuthServiceImpl implements IAuthService {
                 return  userTokenOutPutDTO;
             }
 
-            String token;
+            ClaveRolTokenOutPutDTO tokenClaveRol;
             loginRequest.setUserName(user.get().getUsername());
-            token = userCore.getTokend(loginRequest);//Obtiene un token con rol
+            tokenClaveRol = userCore.getTokend(loginRequest);//Obtiene un token con rol
 
-            userTokenOutPutDTO.setToken(token);
+            userTokenOutPutDTO.setToken(tokenClaveRol.getToken());
+            userTokenOutPutDTO.setClaveRol(tokenClaveRol.getClaveRol());
             return userTokenOutPutDTO;
 
         } catch (IllegalArgumentException e) {

@@ -18,6 +18,8 @@ public class Config {
         return new CodeVerificationCore();
     }
 
+    @Bean
+    public CorsConfig corsConfig(){return new CorsConfig();}
 
 
 }

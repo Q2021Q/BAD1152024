@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Central</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <h2 class="text-white">{{nombreUser}}</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="logOut()">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <br>
+        <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a routerLink="bibio/catrecurso"><i class="fas fa-book"></i> Gestionar Libros</a>
+        <a routerLink="bibio/editorial"><i class="fas fa-book"></i> Gestionar Editorial</a>
+        <a href="#manageUsers"><i class="fas fa-users"></i> Gestionar Usuarios</a>
+        <a href="#reports"><i class="fas fa-chart-bar"></i> Reportes</a>
+        <!-- Agrega más enlaces según sea necesario -->
+    </div>
+
+    <div class="main-content mar-1">
+        <div class="frame">
+            <div class="slogan">
+                <!-- Sección Hero -->
+                <section id="hero" class="d-flex align-items-center justify-content-center text-center"
+                    style="background: linear-gradient(to bottom, #ffffff, #dacaca);">
+                    <router-outlet />
+                </section>
+            </div>
+
+            <!-- Galería -->
+            <section id="gallery" class="py-5">
+                <div class="container">
+                    <!-- Contenido de la galería -->
+                </div>
+            </section>
+        </div>
+    </div>
+   
+</body>
+
+</html>
+
+
