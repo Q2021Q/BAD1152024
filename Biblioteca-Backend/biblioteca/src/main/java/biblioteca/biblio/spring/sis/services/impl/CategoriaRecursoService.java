@@ -13,6 +13,8 @@ import biblioteca.security.spring.sis.persistence.entities.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoriaRecursoService {
 
@@ -31,5 +33,9 @@ public class CategoriaRecursoService {
         categoriaRecursoRepository.save(categoriaRecursoEntity);
         responseBiblioDTO.setMessage("ok");
         return responseBiblioDTO;
+    }
+
+    public List<CategoriaRecursoEntity> getAllCatRecursos() {
+        return categoriaRecursoRepository.findAll();
     }
 }
