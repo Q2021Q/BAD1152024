@@ -1,0 +1,39 @@
+<form action="" class="form__container">
+    <div class="form__sub-container">
+        <h2 class="form__title">Categoria</h2>
+    </div>
+    
+    <div class="form__sub-container">
+        <label for="" class="form__label">Categoria</label>
+        <input type="text" name="categoria" class="form__control" [(ngModel)]="categoria.nombreCategoria">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Descripción</label>
+        <input type="text" name="descripcion" class="form__control" [(ngModel)]="categoria.descripcionCategoria">
+    </div>
+    <div class="form__sub-container">
+        <div class="form__divisor"></div>
+    </div>
+    <div class="form__sub-container">
+        <div class="form__button-container">
+            <button class="form__button" (click)="agregarCategoria()">Agregar</button>
+            <button class="form__button">Guardar Cambios</button>
+        </div>
+    </div>
+</form>
+
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre Categoria</th>
+            <th>Descripción Categoria</th>
+            <th>Controles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table>

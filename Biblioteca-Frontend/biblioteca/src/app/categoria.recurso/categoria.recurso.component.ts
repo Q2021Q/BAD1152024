@@ -6,10 +6,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+// imports
+import { CategoriaFormComponent } from '../form/categoria.form/categoria.form.component';
+
 @Component({
   selector: 'app-categoria.recurso',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, CategoriaFormComponent],
   templateUrl: './categoria.recurso.component.html',
   styleUrl: './categoria.recurso.component.css'
 })
