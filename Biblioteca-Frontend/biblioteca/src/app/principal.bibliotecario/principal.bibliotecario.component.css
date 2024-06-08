@@ -111,12 +111,10 @@ footer .social-icons a:hover {
 
    /* Estilos del marco */
    .frame {
-    border: 10px solid #f8f9fa; /* Color del marco */
     border-radius: 20px; /* Borde redondeado */
     padding: 20px; /* Espaciado interno */
     margin: 5px; /* Espaciado externo */
     margin-top: 100px;
-    background-color: #324174b7; /* Color de fondo dentro del marco */
 }
 
 .slogan{

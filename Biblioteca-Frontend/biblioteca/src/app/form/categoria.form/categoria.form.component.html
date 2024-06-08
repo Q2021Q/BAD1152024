@@ -17,23 +17,31 @@
     <div class="form__sub-container">
         <div class="form__button-container">
             <button class="form__button" (click)="agregarCategoria()">Agregar</button>
-            <button class="form__button">Guardar Cambios</button>
+            <button class="form__button" (click)="cambiarCategoria()">Guardar Cambios</button>
         </div>
     </div>
 </form>
 
-<table class="table table-light">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre Categoria</th>
-            <th>Descripción Categoria</th>
-            <th>Controles</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>2</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table__content">
+    <table class=" table table-light w-100 table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre Categoria</th>
+                <th>Descripción Categoria</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let categoria of categorias">
+                <td>{{ categoria.idCategoriaRecurso }}</td>
+                <td>{{ categoria.nombreCategoria }}</td>
+                <td>{{ categoria.descripcionCategoria }}</td>
+                <td class="form__button-container">
+                    <button class="btn btn-primary" (click)="modificarCategoria(categoria)">Modificar</button>
+                    <button class="btn btn-danger" (click)="borrarCategoria(categoria)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
