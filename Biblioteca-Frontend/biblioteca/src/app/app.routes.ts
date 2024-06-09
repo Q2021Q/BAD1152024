@@ -6,7 +6,7 @@ import { bibioRoutes } from './routers/bibio.router';
 import { PrincipalBibliotecarioComponent } from './principal.bibliotecario/principal.bibliotecario.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
-
+import { SuccessComponent } from './success/success.component';
 
 export const routes: Routes = [
 
@@ -38,4 +38,8 @@ export const routes: Routes = [
         path: 'login',
         component: LoginComponent
     },
+    {
+        path: 'success',
+        component: SuccessComponent
+      },
 ];
