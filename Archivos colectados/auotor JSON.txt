@@ -1,0 +1,27 @@
+add
+POST
+localhost:8080/autor/addAutor
+{
+    "firstName":"Jorge",
+    "secondName":"Alesan",
+    "firstLastName":"Hodu",
+    "secondLastName":"Kalia"
+}
+
+
+update
+POST
+localhost:8080/autor/addAutor
+{
+    "idAutor": 6,
+    "firstName":"Jorgeeeeee",
+    "secondName":"Alesan",
+    "firstLastName":"Hodu",
+    "secondLastName":"Kalia"
+}
+
+
+listar
+GET
+localhost:8080/autor/getAllAutor
+
