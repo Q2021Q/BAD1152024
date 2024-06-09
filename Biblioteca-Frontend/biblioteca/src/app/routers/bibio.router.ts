@@ -18,6 +18,10 @@ export const bibioRoutes: Routes = [
     path: 'editorial',
     loadComponent: () => import('../editorial/editorial.component').then(m => m.EditorialComponent),
     //canActivate: [authBibioGuard],
+  },{
+    path: 'idioma',
+    loadComponent: () => import('../idioma/idioma.component').then(m => m.IdiomaComponent),
+    //canActivate: [authBibioGuard],
   },
   // Otras rutas hijas...
 ];

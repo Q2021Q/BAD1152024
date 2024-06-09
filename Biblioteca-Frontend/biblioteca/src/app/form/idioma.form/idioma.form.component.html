@@ -1,0 +1,41 @@
+<form action="" class="form__container">
+    <div class="form__sub-container">
+        <h2 class="form__title">Idiomas</h2>
+    </div>
+    
+    <div class="form__sub-container">
+        <label for="" class="form__label">Idioma</label>
+        <input type="text" name="nombreIdioma" class="form__control" [(ngModel)]="idioma.nombreIdioma">
+    </div>
+    <div class="form__sub-container">
+        <div class="form__divisor"></div>
+    </div>
+    <div class="form__sub-container">
+        <div class="form__button-container">
+            <button class="form__button" (click)="agregarIdioma()">Agregar</button>
+            <button class="form__button" (click)="cambiarIdioma()">Guardar Cambios</button>
+        </div>
+    </div>
+</form>
+
+<div class="table__content">
+    <table class=" table table-light w-100 table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre idioma</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let idioma of idiomas">
+                <td>{{ idioma.idIdioma }}</td>
+                <td>{{ idioma.nombreIdioma }}</td>
+                <td class="form__button-container">
+                    <button class="btn btn-primary" (click)="modificarIdioma(idioma)">Modificar</button>
+                    <button class="btn btn-danger" (click)="borrarIdioma(idioma)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
