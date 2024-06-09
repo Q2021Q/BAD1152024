@@ -1,1 +1,53 @@
-<p>editorial.form works!</p>
+<form action="" class="form__container">
+    <div class="form__sub-container">
+        <h2 class="form__title">Categoria</h2>
+    </div>
+    
+    <div class="form__sub-container">
+        <label for="" class="form__label">Categoria</label>
+        <input type="text" name="nombreEditorial" class="form__control" [(ngModel)]="editorial.nombreEditorial">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Descripción</label>
+        <input type="text" name="email" class="form__control" [(ngModel)]="editorial.email">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Descripción</label>
+        <input type="text" name="telefonoEditorial" class="form__control" [(ngModel)]="editorial.telefonoEditorial">
+    </div>
+    <div class="form__sub-container">
+        <div class="form__divisor"></div>
+    </div>
+    <div class="form__sub-container">
+        <div class="form__button-container">
+            <button class="form__button" (click)="agregarEditorial()">Agregar</button>
+            <button class="form__button" (click)="cambiarEditorial()">Guardar Cambios</button>
+        </div>
+    </div>
+</form>
+
+<div class="table__content">
+    <table class=" table table-light w-100 table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre Editorial</th>
+                <th>Email Editorial</th>
+                <th>Telefono Editorial</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let editorial of editoriales">
+                <td>{{ editorial.idEditorial }}</td>
+                <td>{{ editorial.nombreEditorial }}</td>
+                <td>{{ editorial.email }}</td>
+                <td>{{ editorial.telefonoEditorial }}</td>
+                <td class="form__button-container">
+                    <button class="btn btn-primary" (click)="modificarEditorial(editorial)">Modificar</button>
+                    <button class="btn btn-danger" (click)="borrarEditorial(editorial)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
