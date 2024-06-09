@@ -22,6 +22,10 @@ export const bibioRoutes: Routes = [
     path: 'idioma',
     loadComponent: () => import('../idioma/idioma.component').then(m => m.IdiomaComponent),
     //canActivate: [authBibioGuard],
+  },{
+    path: 'autor',
+    loadComponent: () => import('../autor/autor.component').then(m => m.AutorComponent),
+    //canActivate: [authBibioGuard],
   },
   // Otras rutas hijas...
 ];

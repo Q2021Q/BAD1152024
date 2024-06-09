@@ -1,0 +1,58 @@
+<form action="" class="form__container">
+    <div class="form__sub-container">
+        <h2 class="form__title">Autores</h2>
+    </div>
+    
+    <div class="form__sub-container">
+        <label for="" class="form__label">Autor</label>
+        <input type="text" name="first_name" class="form__control" [(ngModel)]="autor.firstName">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Autor</label>
+        <input type="text" name="second_name" class="form__control" [(ngModel)]="autor.secondName">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Autor</label>
+        <input type="text" name="first_lastname" class="form__control" [(ngModel)]="autor.firstLastName">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Autor</label>
+        <input type="text" name="second_lastname" class="form__control" [(ngModel)]="autor.secondLastName">
+    </div>
+    <div class="form__sub-container">
+        <div class="form__divisor"></div>
+    </div>
+    <div class="form__sub-container">
+        <div class="form__button-container">
+            <button class="form__button" (click)="agregarAutor()">Agregar</button>
+            <button class="form__button" (click)="cambiarAutor()">Guardar Cambios</button>
+        </div>
+    </div>
+</form>
+
+<div class="table__content">
+    <table class=" table table-light w-100 table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Primer nombre</th>
+                <th>Segundo nombre</th>
+                <th>Primer apellido</th>
+                <th>Segundo apellido</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let autor of autores">
+                <td>{{ autor.firstName }}</td>
+                <td>{{ autor.secondName }}</td>
+                <td>{{ autor.firstLastName }}</td>
+                <td>{{ autor.secondLastName }}</td>
+                <td class="form__button-container">
+                    <button class="btn btn-primary" (click)="modificarAutor(autor)">Modificar</button>
+                    <button class="btn btn-danger" (click)="borrarAutor(autor)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
