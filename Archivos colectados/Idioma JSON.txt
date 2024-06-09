@@ -1,0 +1,25 @@
+add
+POST
+localhost:8080/idioma/addIdioma
+{
+    "nombreIdioma": "Español"
+}
+
+update
+POST
+localhost:8080/idioma/addIdioma
+{
+    "nombreIdioma": "Español"
+}
+
+delete
+DELETE
+localhost:8080/idioma/deleteIdioma
+{
+    "idIdioma": 2,
+    "nombreIdioma": "Español"
+}
+
+listar todos los idiomas
+GET
+localhost:8080/idioma/getAllIdioma
