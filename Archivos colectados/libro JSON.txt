@@ -1,0 +1,56 @@
+add
+POST
+localhost:8080/libro/addBook
+{
+  "titulo": "El Quijote 2",
+  "fechapuBlicacion": "2023-06-01",
+  "fechaAdQuisicion": "2024-01-01",
+  "codigoISBN": "978-3-16-148410-0",
+  "descripcion": "Una obra maestra de la literatura española.",
+  "edicion": "Segunda",
+  "numPaginas": 500,
+  "idCategoria": 1,
+  "idEditorial": 1,
+  "idIdioma": 1,
+  "idAutor": 6,
+  "rutaAcceso": "https://www.example.com/elquijote"
+}
+
+update
+PUT
+localhost:8080/libro/updateBook
+{
+  "idLibro": 3,
+  "titulo": "El Qujininnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+  "fechapuBlicacion": "2023-06-01",
+  "fechaAdQuisicion": "2024-01-01",
+  "codigoISBN": "978-3-16-148410-0",
+  "descripcion": "Una obra maestra de la literatura española.",
+  "edicion": "Segunda",
+  "numPaginas": 500,
+  "idRecursoDigital":1,
+  "idCategoria": 1,
+  "idEditorial": 1,
+  "idIdioma": 1,
+  "idAutor": 6,
+  "rutaAcceso": "https://www.example.com/elquijote/el quginmmnmn"
+}
+
+delete
+DELETE
+localhost:8080/libro/deleteBook
+{
+    "idLibro": 3
+}
+
+
+Buscar libro por autor, titulo e ISBN
+GET
+http://localhost:8080/libro/buscarLibro?parametroFiltro=el quijote
+
+
+Listar libros
+GET
+localhost:8080/libro/getAllBook
+
+
