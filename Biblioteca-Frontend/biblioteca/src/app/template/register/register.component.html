@@ -1,0 +1,98 @@
+<div class="container px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <div class="card card0 border-0">
+        <div class="row d-flex">
+            <div></div>
+            <div class="col-lg-6">
+                <br> <br> <br>
+                <div class="d-flex justify-content-center">
+                    <h2>Biblioteca Central</h2>
+                </div>
+                <div class="card1 pb-5">
+
+                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <!-- <img src="https://i.imgur.com/uNGdWHi.png" class="image"> -->
+                        <img src="assets/images/bib.png" class="image" alt="Biblioteca Logo">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <br><br>
+
+                <div class="d-flex justify-content-center">
+                    <h4>Registro de usuario</h4>
+                </div>
+                <form [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="card2 card border-0 px-4 py-5">
+                        <div>
+                            <label for="userName">Username</label>
+                            <input id="userName" formControlName="userName">
+                            <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+                                Username is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="firstName">First Name</label>
+                            <input id="firstName" formControlName="firstName">
+                            <div
+                                *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+                                First name is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="middleName">Middle Name</label>
+                            <input id="middleName" formControlName="middleName">
+                        </div>
+
+                        <div>
+                            <label for="lastName">Last Name</label>
+                            <input id="lastName" formControlName="lastName">
+                            <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+                                Last name is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="secondLastName">Second Last Name</label>
+                            <input id="secondLastName" formControlName="secondLastName">
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" formControlName="email">
+                            <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                                Valid email is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input id="password" type="password" formControlName="password">
+                            <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                                Password is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="codeSentEmail">Code Sent to Email</label>
+                            <input id="codeSentEmail" formControlName="codeSentEmail">
+                            <div
+                                *ngIf="registerForm.get('codeSentEmail')?.invalid && registerForm.get('codeSentEmail')?.touched">
+                                Code is required.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-blue text-center"
+                            [disabled]="registerForm.invalid">Register</button>
+
+                            <div class="row mb-4 px-3">
+                                <small class="font-weight-bold">¿Ya tienes una cuenta? <a routerLink="/login" class="text-danger">Iniciar Sesión</a></small>
+                            </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
