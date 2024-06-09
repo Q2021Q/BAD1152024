@@ -35,3 +35,5 @@ out/
 
 ### VS Code ###
 .vscode/
+
+Biblioteca-Backend\biblioteca\src\main\resources\application.properties

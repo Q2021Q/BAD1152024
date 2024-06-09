@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
+
   constructor(private http: HttpClient) { }
 
   // Método para hacer una petición GET
@@ -21,4 +22,5 @@ export class AuthService {
   }
 
   // Otros métodos para PUT, DELETE, etc.
+
 }

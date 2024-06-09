@@ -4,13 +4,14 @@ import { catchError, tap } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { FormBuilder, FormGroup, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // Importar RouterModule
 import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: '../../template/login/login.component.html',
   styleUrl: '../../template/login/login.component.css'
 })
