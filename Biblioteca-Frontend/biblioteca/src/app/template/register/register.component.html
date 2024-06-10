@@ -24,15 +24,7 @@
                 <form [formGroup]="registerForm" (ngSubmit)="register()">
                     <div class="card2 card border-0 px-4 py-5">
                         <div>
-                            <label for="userName">Username</label>
-                            <input id="userName" formControlName="userName">
-                            <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
-                                Username is required.
-                            </div>
-                        </div>
-
-                        <div>
-                            <label for="firstName">First Name</label>
+                            <label for="firstName">Primer Nombre</label>
                             <input id="firstName" formControlName="firstName">
                             <div
                                 *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
@@ -41,12 +33,12 @@
                         </div>
 
                         <div>
-                            <label for="middleName">Middle Name</label>
+                            <label for="middleName">Segundo Nombre</label>
                             <input id="middleName" formControlName="middleName">
                         </div>
 
                         <div>
-                            <label for="lastName">Last Name</label>
+                            <label for="lastName">Apellido</label>
                             <input id="lastName" formControlName="lastName">
                             <div *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
                                 Last name is required.
@@ -54,7 +46,7 @@
                         </div>
 
                         <div>
-                            <label for="secondLastName">Second Last Name</label>
+                            <label for="secondLastName">Segundo Apellido</label>
                             <input id="secondLastName" formControlName="secondLastName">
                         </div>
 
@@ -62,35 +54,51 @@
                             <label for="email">Email</label>
                             <input id="email" formControlName="email">
                             <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
-                                Valid email is required.
+                                Se necesito un correo válido
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <label for="codeSentEmail">Codigo de Validacion</label>&nbsp;
+                            <a (click)="requestVerificationCode()" class="text-primary" style="cursor: pointer;"
+                                [class.disabled]="!canRequestCode" [attr.disabled]="!canRequestCode ? true : null">{{
+                                requestCodeText }}</a>
+                            <div *ngIf="verificationMessage" class="text-success">{{ verificationMessage }}</div>
+                            <input id="codeSentEmail" formControlName="codeSentEmail">
+                            <div
+                                *ngIf="registerForm.get('codeSentEmail')?.invalid && registerForm.get('codeSentEmail')?.touched">
+                                Codigo de verificacion es requerido
                             </div>
                         </div>
 
                         <div>
-                            <label for="password">Password</label>
+                            <label for="userName">Usuario (username)</label>
+                            <input id="userName" formControlName="userName">
+                            <div *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+                                Username is required.
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="password">Contraseña</label>
                             <input id="password" type="password" formControlName="password">
                             <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
                                 Password is required.
                             </div>
                         </div>
 
-                        <div>
-                            <label for="codeSentEmail">Code Sent to Email</label>
-                            <input id="codeSentEmail" formControlName="codeSentEmail">
-                            <div
-                                *ngIf="registerForm.get('codeSentEmail')?.invalid && registerForm.get('codeSentEmail')?.touched">
-                                Code is required.
-                            </div>
-                        </div>
+
 
                         <button type="submit" class="btn btn-blue text-center"
-                            [disabled]="registerForm.invalid">Register</button>
-
-                            <div class="row mb-4 px-3">
-                                <small class="font-weight-bold">¿Ya tienes una cuenta? <a routerLink="/login" class="text-danger">Iniciar Sesión</a></small>
-                            </div>
+                            [disabled]="registerForm.invalid || !verificationCodeSent">Registrar</button>
+                        <br>
+                        <div class="row mb-4 px-3">
+                            <small class="font-weight-bold">¿Ya tienes una cuenta? <a routerLink="/login"
+                                    class="text-danger">Iniciar Sesión</a></small>
+                        </div>
                     </div>
-
+                    <div *ngIf="errorMessage" class="text-danger mt-3">{{ errorMessage }}</div>
                 </form>
             </div>
         </div>

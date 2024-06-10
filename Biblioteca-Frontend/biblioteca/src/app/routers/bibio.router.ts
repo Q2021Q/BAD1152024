@@ -26,6 +26,10 @@ export const bibioRoutes: Routes = [
     path: 'autor',
     loadComponent: () => import('../autor/autor.component').then(m => m.AutorComponent),
     //canActivate: [authBibioGuard],
+  },{
+    path: 'libro',
+    loadComponent: () => import('../libro/libro.component').then(m => m.LibroComponent),
+    //canActivate: [authBibioGuard],
   },
   // Otras rutas hijas...
 ];
