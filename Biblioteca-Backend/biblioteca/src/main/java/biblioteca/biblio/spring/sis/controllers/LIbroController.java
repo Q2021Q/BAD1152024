@@ -44,6 +44,7 @@ public class LIbroController {
         return new ResponseEntity<>(recursos, HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('ROLE_BIBLIOTECARIO')")
     @GetMapping("/buscarLibro")
     public List<LibroEntity> buscarLibro(@RequestParam String parametroFiltro) {
         return libroService.buscarLibro(parametroFiltro);
