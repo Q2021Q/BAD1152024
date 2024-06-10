@@ -4,16 +4,16 @@
 <body>
       <header class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
           <div class="container">
-              <h2>{{nombreUser}}</h2>
+              <h5>Usuario: {{nombreUser}}</h5>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                   <ul class="navbar-nav ms-auto">
                       <li class="nav-item">
-                          <a class="nav-link" (click)="logOut()">Serrar Sesión</a>
+                          <a class="nav-link" (click)="logOut()">Cerrar Sesión</a>
                       </li>
-                  </ul>
+                  </ul>  |  &nbsp;{{ currentDate | date:'fullDate' }} {{ currentDate | date:'mediumTime' }}
               </div>
           </div>
       </header>
@@ -24,7 +24,7 @@
             <img src="assets/images/bib.png" class="img-fluid" alt="Imagen de fondo"> <!-- Agrega la ruta de tu imagen en el atributo src -->
             <div class="container">
                 <h1 class="display-4 animate__animated animate__fadeInDown">Biblioteca Central</h1>
-                <p class="lead animate__animated animate__fadeInUp">El salvador</p>
+                <p class="lead animate__animated animate__fadeInUp">El Salvador</p>
             </div>
         </section>
     </div>
