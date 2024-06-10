@@ -1,0 +1,115 @@
+<form action="" class="form__container">
+    <div class="form__sub-container">
+        <h2 class="form__title">Libros</h2>
+    </div>
+    
+    <div class="form__sub-container">
+        <label for="" class="form__label">Titulo</label>
+        <input type="text" name="titulo" class="form__control" [(ngModel)]="libro.titulo">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Fecha de Publicación</label>
+        <input type="date" name="publicacion" class="form__control" [(ngModel)]="libro.fechapuBlicacion">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Fecha de Adquisición</label>
+        <input type="date" name="adquisicion" class="form__control" [(ngModel)]="libro.fechaAdQuisicion">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Código ISBN</label>
+        <input type="text" name="codigo" class="form__control" [(ngModel)]="libro.codigoISBN">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Descripción</label>
+        <input type="text" name="descripcion" class="form__control" [(ngModel)]="libro.descripcion">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Edición</label>
+        <input type="text" name="edicion" class="form__control" [(ngModel)]="libro.edicion">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Número de Páginas</label>
+        <input type="text" name="paginas" class="form__control" [(ngModel)]="libro.numPaginas">
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Categoria</label>
+        <select name="categoria" class="form__control" [(ngModel)]="libro.idCategoria">
+            <option [value]="categoria.idCategoriaRecurso"  *ngFor="let categoria of categorias">{{ categoria.nombreCategoria }}</option>
+        </select>
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Editorial</label>
+        <select name="editorial" class="form__control" [(ngModel)]="libro.idEditorial">
+            <option [value]="editorial.idEditorial"  *ngFor="let editorial of editoriales">{{ editorial.nombreEditorial }}</option>
+        </select>
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Idioma</label>
+        <select name="idioma" class="form__control" [(ngModel)]="libro.idIdioma">
+            <option [value]="idioma.idIdioma"  *ngFor="let idioma of idiomas">{{ idioma.nombreIdioma }}</option>
+        </select>
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Idioma</label>
+        <select name="autor" class="form__control" [(ngModel)]="libro.idAutor">
+            <option [value]="autor.idAutor"  *ngFor="let autor of autores">{{ autor.firstName + ' ' + autor.firstLastName }}</option>
+        </select>
+    </div>
+    <div class="form__sub-container">
+        <label for="" class="form__label">Acceso</label>
+        <input type="text" name="acceso" class="form__control" [(ngModel)]="libro.rutaAcceso">
+    </div>
+    <div class="form__sub-container">
+        <div class="form__divisor"></div>
+    </div>
+    <div class="form__sub-container">
+        <div class="form__button-container">
+            <button class="form__button" (click)="agregarLibro()">Agregar</button>
+            <button class="form__button" (click)="cambiarLibro()">Guardar Cambios</button>
+        </div>
+    </div>
+</form>
+
+<div class="table__content " style="overflow-x: auto">
+    <table class="libro__table table table-light w-100 table-striped" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Fecha de Publicación</th>
+                <th>Fecha de Adquisición</th>
+                <th>Código ISBN</th>
+                <th>Descripción</th>
+                <th>Edición</th>
+                <th>Número de Páginas</th>
+                <th>Categoria</th>
+                <th>Editorial</th>
+                <th>Idioma</th>
+                <th>Autor</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros">
+                <td >{{ libro.idLibro }}</td>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.fechapuBlicacion }}</td>
+                <td>{{ libro.fechaAdQuisicion }}</td>
+                <td>{{ libro.codigoISBN }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td>{{ libro.edicion }}</td>
+                <td>{{ libro.numPaginas }}</td>
+                <td>{{ libro.categoria.nombreCategoria }}</td>
+                <td>{{ libro.editorial.nombreEditorial }}</td>
+                <td>{{ libro.idioma.nombreIdioma }}</td>
+                <td>{{ libro.autor.firstName + ' ' + libro.autor.firstLastName }}</td>
+                <td>
+                    <div class="form__button-container">
+                        <button class="btn btn-primary" (click)="modificarLibro(libro)">Modificar</button>
+                        <button class="btn btn-danger" (click)="borrarLibro(libro)">Borrar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

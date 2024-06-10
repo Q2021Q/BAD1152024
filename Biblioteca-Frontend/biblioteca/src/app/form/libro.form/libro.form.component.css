@@ -1,0 +1,85 @@
+.form__container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px;
+    box-shadow: silver;
+    margin-bottom: 40px;
+    box-shadow: 2px 2px 4px silver;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form__sub-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.form__title {
+    color: #4d4d4d;
+}
+
+.form__divisor {
+    border-bottom: 1px solid silver;
+}
+
+.form__label {
+    text-align: left;
+    color: #4d4d4d;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.form__control {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid silver;
+    outline: 0px;
+}
+
+.form__control:hover {
+    outline-style: solid;
+    outline-color: #c0c0c0;
+    outline-width: 2px;
+}
+
+.form__control:focus {
+    outline-style: solid;
+    outline-color: #c0c0c0;
+    outline-width: 2px;
+}
+
+.form__button-container {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    height: auto;
+}
+
+.form__button {
+    flex-grow: 1;
+    flex-basis: 40%;
+    padding: 10px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(0, 89, 255);
+    font-weight: 400;
+    color: #ffffff;
+}
+
+.table__content {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 4px silver;
+    width: 100%;
+}
+
+.libro__table {
+    width: 100%;
+}
