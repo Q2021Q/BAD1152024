@@ -22,6 +22,7 @@ export class LectorIndexComponent {
   loading = false;
    placeholders: any[] = []; // Arreglo de placeholders
   public nombreUser: string | null = null;
+  currentDate: Date = new Date();
 
   @Input() book: any; // Recibe datos del libro del componente padre
   selectedBook: any;
@@ -29,6 +30,16 @@ export class LectorIndexComponent {
   constructor( private router: Router, private http: HttpClient, private el: ElementRef) { 
     this.setNombrre();
     this.getAllBook();
+  }
+  
+  ngOnInit(): void {
+    this.updateDate();
+  }
+
+  updateDate(): void {
+    setInterval(() => {
+      this.currentDate = new Date();
+    }, 1000); // Actualiza cada segundo
   }
   
   getAllBook() {
