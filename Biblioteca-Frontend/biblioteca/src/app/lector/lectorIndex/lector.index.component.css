@@ -143,3 +143,50 @@ footer .social-icons a:hover {
         background-color: #999; /* Color de fondo del botón al pasar el mouse */
         border-color: #999; /* Color del borde del botón al pasar el mouse */
     }
+
+    /* Estilos para el modal */
+.modal-content {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+  
+  .modal-header {
+    background-color: #007bff; /* Color de fondo para la cabecera */
+    color: white; /* Color del texto */
+    border-top-left-radius: 10px; /* Bordes redondeados para la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Bordes redondeados para la esquina superior derecha */
+  }
+  
+  .modal-footer {
+    background-color: #f8f9fa; /* Color de fondo para el pie de página */
+    border-bottom-left-radius: 10px; /* Bordes redondeados para la esquina inferior izquierda */
+    border-bottom-right-radius: 10px; /* Bordes redondeados para la esquina inferior derecha */
+  }
+  
+  .modal-title {
+    font-size: 1.5rem; /* Tamaño del título */
+  }
+  
+  .modal-body {
+    padding: 20px; /* Espaciado interno */
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d; /* Color de fondo para el botón secundario */
+    border-color: #6c757d; /* Color del borde */
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268; /* Color de fondo al pasar el mouse */
+    border-color: #545b62; /* Color del borde al pasar el mouse */
+    color: white; /* Color del texto al pasar el mouse */
+  }
+  
+  .btn-close {
+    color: white; /* Color del botón de cierre */
+  }
+  
+  .btn-close:hover {
+    color: #f8f9fa; /* Color del botón de cierre al pasar el mouse */
+  }
+  

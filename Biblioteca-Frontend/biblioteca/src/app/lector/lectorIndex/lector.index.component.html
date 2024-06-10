@@ -1,80 +1,102 @@
+<div class="frame">
 
-
- <div class="frame">
-<body>
-      <header class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
-          <div class="container">
-              <h2>{{nombreUser}}</h2>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav ms-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" (click)="logOut()">Serrar Sesión</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </header>
-      
-      <div class="slogan">
-        <!-- Sección Hero -->
-        <section id="hero" class="d-flex align-items-center justify-content-center text-center" style="background: linear-gradient(to bottom, #ffffff, #888888);">
-            <img src="assets/images/bib.png" class="img-fluid" alt="Imagen de fondo"> <!-- Agrega la ruta de tu imagen en el atributo src -->
+    <body>
+        <header class="navbar navbar-expand-lg navbar-dark bg-white fixed-top">
             <div class="container">
-                <h1 class="display-4 animate__animated animate__fadeInDown">Biblioteca Central</h1>
-                <p class="lead animate__animated animate__fadeInUp">El salvador</p>
+                <h2>{{nombreUser}}</h2>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" (click)="logOut()">Serrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </section>
-    </div>
-    
-    
-      <!-- Galería -->
-      <section id="gallery" class="py-5">
-          <div class="container">
-              <div class="text-center mb-5">
-                  <p class="lead">Explora nuestra colección de ejemplares</p>
-              </div>
-              <div class="row">
-                  <div class="col-md-3 mb-4">
-                      <div class="card">
-                          <img src="https://via.placeholder.com/350" class="card-img-top" alt="Imagen 1">
-                          <div class="card-body">
-                              <h5 class="card-title">Imagen 1</h5>
-                              <p class="card-text">Descripción de la imagen 1.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                      <div class="card">
-                          <img src="https://via.placeholder.com/350" class="card-img-top" alt="Imagen 2">
-                          <div class="card-body">
-                              <h5 class="card-title">Imagen 2</h5>
-                              <p class="card-text">Descripción de la imagen 2.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                      <div class="card">
-                          <img src="https://via.placeholder.com/350" class="card-img-top" alt="Imagen 3">
-                          <div class="card-body">
-                              <h5 class="card-title">Imagen 3</h5>
-                              <p class="card-text">Descripción de la imagen 3.</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-md-3 mb-4">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/350" class="card-img-top" alt="Imagen 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Imagen 3</h5>
-                            <p class="card-text">Descripción de la imagen 3.</p>
+        </header>
+
+        <div class="slogan">
+            <!-- Sección Hero -->
+            <section id="hero" class="d-flex align-items-center justify-content-center text-center"
+                style="background: linear-gradient(to bottom, #ffffff, #888888);">
+                <img src="assets/images/bib.png" class="img-fluid" alt="Imagen de fondo">
+                <!-- Agrega la ruta de tu imagen en el atributo src -->
+                <div class="container">
+                    <h1 class="display-4 animate__animated animate__fadeInDown">Biblioteca Central</h1>
+                    <p class="lead animate__animated animate__fadeInUp">El salvador</p>
+                </div>
+            </section>
+        </div>
+
+        <section id="gallery" class="py-5">
+            <div class="container">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar libro..." (input)="buscarLibro($event)">
+                </div>
+                <div class="text-center mb-5">
+                    <p class="lead">Explora nuestra colección de ejemplares</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4" *ngFor="let placeholder of placeholders">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="sr-only">Cargando...</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-4" *ngFor="let book of books">
+                            <div class="card" style="height: 470px;"> <!-- Establece una altura fija para la tarjeta -->
+                                <a *ngIf="book.recursoDigital && book.recursoDigital.rutaAcceso"
+                                    [href]="book.recursoDigital.rutaAcceso" target="_blank">
+                                    <!-- Verifica si el enlace está presente -->
+                                    <img src="assets/images/libG.webp" class="image" alt="Biblioteca Logo"
+                                        class="card-img-top">
+                                </a>
+                                <img *ngIf="!book.recursoDigital || !book.recursoDigital.rutaAcceso"
+                                    src="assets/images/libG.webp" class="image" alt="Biblioteca Logo"
+                                    class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ book.titulo }}</h5>
+                                    <button class="btn btn-primary" (click)="openModal(book)">Ver detalles</button>
+                                    <!-- <p class="card-text">{{ book.descripcion }}</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
                 </div>
-              </div>
-          </div>
-      </section>
-</body>
+            </div>
+        </section>
+
+    </body>
 </div>
+
+<div class="modal fade" id="bookDetailsModal" tabindex="-1" role="dialog" aria-labelledby="bookDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="bookDetailsModalLabel">Detalles del Libro</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Título:</strong> {{ selectedBook?.titulo }}</p>
+            <p><strong>Código ISBN:</strong> {{ selectedBook?.codigoISBN }}</p>
+            <p><strong>Descripción:</strong> {{ selectedBook?.descripcion }}</p>
+            <p><strong>Edición:</strong> {{ selectedBook?.edicion }}</p>
+            <p><strong>Número de Páginas:</strong> {{ selectedBook?.numPaginas }}</p>
+            <p><strong>Editorial:</strong> {{ selectedBook?.editorial.nombreEditorial }}</p>
+            <p><strong>Idioma:</strong> {{ selectedBook?.idioma.nombreIdioma }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
