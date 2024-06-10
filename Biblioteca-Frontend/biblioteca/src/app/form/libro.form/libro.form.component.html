@@ -50,7 +50,7 @@
         </select>
     </div>
     <div class="form__sub-container">
-        <label for="" class="form__label">Idioma</label>
+        <label for="" class="form__label">Autor</label>
         <select name="autor" class="form__control" [(ngModel)]="libro.idAutor">
             <option [value]="autor.idAutor"  *ngFor="let autor of autores">{{ autor.firstName + ' ' + autor.firstLastName }}</option>
         </select>
